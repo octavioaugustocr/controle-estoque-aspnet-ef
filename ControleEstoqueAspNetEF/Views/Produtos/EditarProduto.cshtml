@@ -1,0 +1,84 @@
+﻿@model ControleEstoqueAspNetEF.Models.Produtos;
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3 class="badge bg-secondary">@ViewData["Message"]</h3>
+
+<form asp-action="SalvarProduto" asp-controller="Produtos" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Nome</label>
+        <div class="col-sm-4">
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Marca</label>
+        <div class="col-sm-4">
+            <input asp-for="Marca" class="form-control" />
+            <span asp-validation-for="Marca" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Sabor</label>
+        <div class="col-sm-4">
+            <input asp-for="Sabor" class="form-control" />
+            <span asp-validation-for="Sabor" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Preço</label>
+        <div class="col-sm-4">
+            <input asp-for="Preco" class="form-control" />
+            <span asp-validation-for="Preco" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Fabricante</label>
+        <div class="col-sm-4">
+            <input asp-for="Fabricante" class="form-control" />
+            <span asp-validation-for="Fabricante" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Data de Vencimento</label>
+        <div class="col-sm-4">
+            <input type="date" asp-for="DataVencimento" class="form-control" />
+            <span asp-validation-for="DataVencimento" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Estoque</label>
+        <div class="col-sm-4">
+            <input asp-for="QuantidadeEstoque" type="number" class="form-control" min="0" step="1" />
+            <span asp-validation-for="QuantidadeEstoque" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3 mt-2">
+        <label class="col-sm-2 col-form-label text-right">Un. Medida</label>
+        <div class="col-sm-4">
+            <input asp-for="UnidadeMedida" class="form-control" />
+            <span asp-validation-for="UnidadeMedida" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="button mt-2">
+        <button class="btn btn-primary" type="submit">Salvar</button>
+        <a asp-action="Index" asp-controller="Produtos" class="btn btn-secondary">Voltar</a>
+    </div>
+
+</form>

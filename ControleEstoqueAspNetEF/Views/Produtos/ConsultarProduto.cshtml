@@ -1,0 +1,68 @@
+﻿@model ControleEstoqueAspNetEF.Models.Produtos;
+@{
+    ViewData["Title"] = "Consulta de Produto";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3 class="badge bg-secondary">@ViewData["Message"]</h3>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Nome</label>
+    <div class="col-sm-4">
+        <input asp-for="Nome" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Marca</label>
+    <div class="col-sm-4">
+        <input asp-for="Marca" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Sabor</label>
+    <div class="col-sm-4">
+        <input asp-for="Sabor" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Preço</label>
+    <div class="col-sm-4">
+        <input asp-for="Preco" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Fabricante</label>
+    <div class="col-sm-4">
+        <input asp-for="Fabricante" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Data de Vencimento</label>
+    <div class="col-sm-4">
+        <input type="date" asp-for="DataVencimento" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Estoque</label>
+    <div class="col-sm-4">
+        <input asp-for="QuantidadeEstoque" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="row col-md-offset-3 mt-2">
+    <label class="col-sm-2 col-form-label text-right">Un. Medida</label>
+    <div class="col-sm-4">
+        <input asp-for="UnidadeMedida" class="form-control" disabled />
+    </div>
+</div>
+
+<br />
+<div class="button mt-2">
+    <a asp-action="Index" asp-controller="Produtos" class="btn btn-secondary">Voltar</a>
+</div>

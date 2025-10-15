@@ -1,0 +1,80 @@
+﻿@model List<ControleEstoqueAspNetEF.Models.Produtos>;
+
+<div class="row mb-3">
+    <div class="col-2">
+        <h3 class="mb-3">Produtos</h3>
+    </div>
+
+    <form asp-action="ObterProdutoPorDescricao" asp-controller="Produtos" method="get">
+        <div class="row">
+            <div class="col-4">
+                <label for="texto" class="form-label">Pesquisar:</label>
+                <input type="text" id="texto" name="texto" value="@ViewBag.Texto" class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label class="form-label">Filtrar por:</label>
+                @{
+                    var selected = Convert.ToString(ViewBag.Campo);
+                }
+                <select id="campo" name="campo" class="form-select">
+                    <option value="nome" selected="@(selected == "nome")">Nome</option>
+                    <option value="marca" selected="@(selected == "marca")">Marca</option>
+                    <option value="sabor" selected="@(selected == "sabor")">Sabor</option>
+                    <option value="preco" selected="@(selected == "preco")">Preço</option>
+                    <option value="fabricante" selected="@(selected == "fabricante")">Fabricante</option>
+                    <option value="datavencimento" selected="@(selected == "datavencimento")">Data de Vencimento</option>
+                    <option value="estoque" selected="@(selected == "estoque")">Estoque</option>
+                    <option value="unmedida" selected="@(selected == "unmedida")">Un. Medida</option>
+                </select>
+            </div>
+
+            <div class="row w-50 h-25 mt-auto">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-search"></i> Buscar
+                    </button>
+                </div>
+
+                <div class="col-6">
+                    <a href="/Produtos/AdicionarProduto" class="btn btn-primary" title="Adicionar produto"><i class="bi bi-file-earmark-plus"></i> Adicionar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<table class="table table-sucess table-striped">
+    <tr>
+        <th>Nome</th>
+        <th>Marca</th>
+        <th>Sabor</th>
+        <th>Preço</th>
+        <th>Fabricante</th>
+        <th>Vencimento</th>
+        <th class="text-center">Estoque</th>
+        <th class="text-center">Un. de Medida</th>
+        <th class="text-center">Ação</th>
+    </tr>
+
+    @foreach (var produto in Model)
+    {
+        <tr>
+            <td>@produto.Nome</td>
+            <td>@produto.Marca</td>
+            <td>@produto.Sabor</td>
+            <td>@produto.Preco</td>
+            <td>@produto.Fabricante</td>
+            <td>@produto.DataVencimento</td>
+            <td class="text-center">@produto.QuantidadeEstoque</td>
+            <td class="text-center">@produto.UnidadeMedida</td>
+            <td class="text-center">
+                <a href="/Produtos/ConsultarProduto/@produto.Id" class="btn btn-sm btn-primary" title="Consultar produto"><i class="bi bi-eye"></i></a>
+
+                <a href="/Produtos/EditarProduto/@produto.Id" class="btn btn-sm btn-success" title="Alterar produto"><i class="bi bi-pencil-square"></i></a>
+
+                <a href="/Produtos/ExcluirProduto/@produto.Id" class="btn btn-sm btn-danger" title="Excluir produto"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
+    }
+</table>

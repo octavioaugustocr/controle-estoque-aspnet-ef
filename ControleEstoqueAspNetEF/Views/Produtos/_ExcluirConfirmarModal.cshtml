@@ -1,0 +1,21 @@
+﻿<div class="modal fade" id="confirmeExcluirModal" tabindex="-1" aria-labelledby="confirmeExcluirModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h1 class="modal-title" id="confirmeExcluirModalLabel">Excluir Produto</h1>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir o produto "@Model.Nome"?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                @using (Html.BeginForm("ExcluirConfirmar", "Produtos", new { id = Model.Id }, FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
